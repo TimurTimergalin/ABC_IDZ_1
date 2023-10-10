@@ -1,6 +1,9 @@
 # Файл с тестами
 
+.include "mfunc.inc"
+.include "convenience.inc"
 .include "idz1.inc"
+.include "io.inc"
 
 # Размер входных даных в каждом из тестов
 .eqv size1 0

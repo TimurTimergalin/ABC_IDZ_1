@@ -1,8 +1,11 @@
 # Файл с основной программой
 
+.include "convenience.inc"
+.include "mfunc.inc"
+.include "io.inc"
 .include "idz1.inc"
 .data
-	# Эти массивы подадим на вход
+	# Эти массивы подаются на вход
 	.align 2
 	arrA: .space 40
 	arrB: .space 40
