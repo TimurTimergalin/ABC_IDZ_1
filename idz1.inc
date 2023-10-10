@@ -102,6 +102,7 @@
 .macro print_body # (arr, size) 
 .data
 	s_sp: .asciz " "
+	s_ln: .asciz "\n"
 .text
 	mv t1 a0
 	
@@ -118,6 +119,9 @@
 		addi t1 t1 4
 		b loop
 	end:
+	la a0 s_ln
+	li a7 4
+	ecall
 .end_macro
 
 # Определение подпрограмм и макросов для их удобного вызова

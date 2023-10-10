@@ -49,6 +49,8 @@
 	s_colon: .asciz ": "
 	s_ok: .asciz "OK\n"
 	s_wa: .asciz "Wrong answer\n"
+	s_correct: .asciz "    Correct: "
+	s_actual: .asciz "    Actual: " 
 
 
 # Поэлементно проверяет 2 массива на равенство 
@@ -103,12 +105,19 @@ func(_compare, compare_body)
 	
 	beqz t0 wrong  # ... в зависимости от правильности результата
 		la a0 s_ok
-		b chosen
+		ecall
+		b end
 	wrong:
 		la a0 s_wa
-	chosen:
-	
-	ecall
+		ecall
+		
+		la a0 s_correct
+		ecall
+		print (%an, s0)
+		la a0 s_actual
+		ecall
+		print (%out, s0)
+	end:
 .end_macro
 .globl main
 .text
